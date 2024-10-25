@@ -1,15 +1,20 @@
 import { useState } from "react";
 
 export const useCalculadora = () => {
-  const [numeroAnterior, setNumeroAnterior] = useState("0");
-  const [number, setNumber] = useState("0");
+  const [numeroAnterior, setNumeroAnterior] = useState("");
+  const [number, setNumber] = useState("");
+  const [isResult, setIsResult] = useState(false);
 
   const limpiar = () => {
-    setNumber("0");
-    setNumeroAnterior("0");
+    setNumber("");
+    setNumeroAnterior("");
+    setIsResult(false);
   };
 
   const armarNumero = (numeroTexto: string) => {
+
+  
+
     if (number.includes(".") && numeroTexto === ".") return;
 
     if (number.startsWith("0") || number.startsWith("-0")) {
@@ -40,6 +45,7 @@ export const useCalculadora = () => {
     }
 
     setNumber(decimal.toString());
+    setIsResult(true);
   };
 
   const btnDelete = () => {
@@ -53,6 +59,7 @@ export const useCalculadora = () => {
   return {
     number,
     numeroAnterior,
+    isResult,
     limpiar,
     btnDelete,
     armarNumero,

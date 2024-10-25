@@ -1,8 +1,9 @@
 import React from 'react';
 
-const ButtonCalc = ({ texto, color = '#2D2D2D', ancho = false, accion }) => {
+const ButtonCalc = ({ texto, color = '#2D2D2D', ancho = false, accion, isResult = false}) => {
   return (
     <button
+      disabled={isResult}
       onClick={() => accion(texto)}
       style={{
         backgroundColor: color,

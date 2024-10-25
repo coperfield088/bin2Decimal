@@ -12,7 +12,8 @@ export const CalculatorPage = () => {
     limpiar,
     armarNumero,
     btnDelete,
-    binarioADecimal
+    binarioADecimal,
+    isResult
     
   } = useCalculadora();
 
@@ -27,9 +28,9 @@ export const CalculatorPage = () => {
       </div>
 
       <div className="fila">
-        <ButtonCalc texto="Limpiar" ancho color="#9B9B9B" accion={limpiar} />
+        <ButtonCalc texto="Limpiar" ancho color={isResult ? 'green' : '#9B9B9B'} accion={limpiar} />
         
-        <ButtonCalc texto="Borrar" ancho color="#9B9B9B" accion={btnDelete} />
+        <ButtonCalc texto="Borrar" ancho color={isResult ? 'rgba(211, 211, 211, 0.6)' : '#9B9B9B'} accion={btnDelete} isResult={isResult} />
         
        
       </div>
@@ -37,9 +38,9 @@ export const CalculatorPage = () => {
    
 
       <div className="fila">
-        <ButtonCalc texto="0"  accion={armarNumero} />
-        <ButtonCalc texto="1" accion={armarNumero} />
-        <ButtonCalc texto="Covertir" ancho color="#604CC3" accion={binarioADecimal} />
+        <ButtonCalc texto="0"  accion={armarNumero}  ancho color={isResult ? 'rgba(211, 211, 211, 0.6)' : '#2D2D2D'} isResult={isResult} />
+        <ButtonCalc texto="1" accion={armarNumero} ancho color={isResult ? 'rgba(211, 211, 211, 0.6)' : '#2D2D2D'} isResult={isResult} />
+        <ButtonCalc texto="Covertir" ancho color={isResult ? 'rgba(211, 211, 211, 0.6)' : '#604CC3'} accion={binarioADecimal} isResult={isResult} />
       </div>
     </div>
   );
